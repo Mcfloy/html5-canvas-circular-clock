@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Circular clock</title>
+    <style>h1{font-family:'Trebuchet MS',Arial,sans-serif;color:white;}</style>
+  </head>
+  <body style="background-color: rgb(21,21,21); text-align: center;">
+    <canvas width="300" height="300" style="border-radius: 150px"></canvas>
+    <script>
+      var c=document.querySelector("canvas"),cC=c.getContext("2d"),W=c.width,H=c.height;const A=0;function tB(b){var e=b.toString(2);e="000000".substr(e.length)+e;let f=[];for(var g=0;g<e.length;g++)f.push("1"==e[g]?1:0);return f}function mC(b,e,f,g,j){cC.lineWidth=g;for(let k=0;k<j.length;k++)cC.strokeStyle=1===j[k]?`rgba(${f}, 0.9)`:`rgba(${f}, 0.2)`,cC.beginPath(),cC.arc(W/2,H/2,b,(60*k+5+e)*Math.PI/180+1.5*Math.PI,(60*(k+1)-5+e)*Math.PI/180+1.5*Math.PI),cC.stroke()}var oS=0,oM=0,oH=0,oD=0,oMo=0,oY=0;function dr(){window.requestAnimationFrame(dr),oS+=0.14,oM-=0.15,oH+=0.92,oD-=0.65,oMo+=0.35,oY-=0.89;let b=new Date,e=b.getSeconds(),f=b.getMinutes(),g=b.getHours(),j=b.getDate(),k=b.getMonth()+1,p=b.getFullYear()-2e3;cC.fillStyle="rgb(21,21,21)",cC.fillRect(0,0,W,H);const q=8,r=19,u=22;mC(1*r+u,oS,"232,85,62",q,tB(e)),mC(2*r+u,oM,"245,185,69",q,tB(f)),mC(3*r+u,oH,"137,192,83",q,tB(g)),mC(4*r+u,oD,"58,173,217",q,tB(j)),mC(5*r+u,oMo,"149,121,218",q,tB(k)),mC(6*r+u,oY,"227,182,146",q,tB(p))}dr();
+    </script>
+  </body>
+</html>
